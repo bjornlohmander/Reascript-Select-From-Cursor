@@ -8,8 +8,6 @@ X-Rayman's Forum Thread: http://forum.cockos.com/showthread.php?p=1489411
 
 --]]
 
-
-
 function selected_items_on_tracks() -- local (i, j, item, take, track)
 
 
@@ -37,10 +35,10 @@ reaper.SelectAllMediaItems( 0, 0 )
       cursorPos= reaper.GetCursorPosition()
       
       itemPosStart = reaper.GetMediaItemInfo_Value( item, "D_POSITION" )
-      --itemLenght =  reaper.GetMediaItemInfo_Value( item, "D_LENGTH" )
-      --itemPosEnd=itemPosStart+itemLenght
+      itemLenght =  reaper.GetMediaItemInfo_Value( item, "D_LENGTH" )
+      itemPosEnd=itemPosStart+itemLenght
       
-      if itemPosStart<cursorPos then
+      if itemPosEnd>cursorPos then
       
       reaper.SetMediaItemSelected(item, 1)
    end
